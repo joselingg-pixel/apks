@@ -1,0 +1,20 @@
+library core;
+
+abstract class Failure {
+  final String message;
+  const Failure(this.message);
+}
+
+class DatabaseFailure extends Failure {
+  const DatabaseFailure(super.message);
+}
+
+class CacheFailure extends Failure {
+  const CacheFailure(super.message);
+}
+
+abstract class UseCase<Type, Params> {
+  Future<Type> call(Params params);
+}
+
+class NoParams {}
